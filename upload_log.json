@@ -1,0 +1,29 @@
+[
+  {
+    "id": "log_initial_1",
+    "action": "PARSE",
+    "filename": "Vedant_Kupate_Resume.pdf",
+    "candidateName": "Vedant Kupate",
+    "status": "SUCCESS",
+    "details": "Parsed and created profile for Vedant Kupate",
+    "timestamp": "2026-07-02T10:00:00.000Z"
+  },
+  {
+    "id": "log_initial_2",
+    "action": "PARSE",
+    "filename": "Alice_Smith_Resume.docx",
+    "candidateName": "Alice Smith",
+    "status": "SUCCESS",
+    "details": "Parsed and created profile for Alice Smith",
+    "timestamp": "2026-07-02T11:30:00.000Z"
+  },
+  {
+    "id": "log_initial_3",
+    "action": "PARSE",
+    "filename": "Bob_Johnson_Resume.pdf",
+    "candidateName": "Bob Johnson",
+    "status": "SUCCESS",
+    "details": "Parsed and created profile for Bob Johnson",
+    "timestamp": "2026-07-02T12:15:00.000Z"
+  }
+]

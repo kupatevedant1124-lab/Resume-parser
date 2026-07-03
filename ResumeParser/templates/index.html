@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Resume Parser - Internship Submission</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+    <!-- Sidebar Navigation -->
+    <div class="d-flex" id="wrapper">
+        <div class="bg-dark text-white border-end" id="sidebar-wrapper">
+            <div class="sidebar-heading border-bottom py-4 px-3 text-center">
+                <i class="fa-solid fa-brain text-info me-2 fs-4"></i>
+                <span class="fw-bold tracking-wide">ResumeParser</span>
+            </div>
+            <div class="list-group list-group-flush my-3">
+                <a href="/" class="list-group-item list-group-item-action bg-dark text-white active px-4 py-3 border-0">
+                    <i class="fa-solid fa-users me-3"></i>Candidates
+                </a>
+                <a href="/dashboard" class="list-group-item list-group-item-action bg-dark text-white px-4 py-3 border-0">
+                    <i class="fa-solid fa-chart-line me-3"></i>Dashboard
+                </a>
+            </div>
+            <div class="sidebar-footer text-center p-3 text-muted border-top border-secondary position-absolute bottom-0 w-inherit">
+                <small>Internship Submission v1.0</small>
+            </div>
+        </div>
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper" class="w-100 bg-light-gray">
+            <!-- Navbar -->
+            <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom px-4 py-3">
+                <div class="container-fluid p-0">
+                    <button class="btn btn-outline-dark border-0 btn-sm" id="menu-toggle">
+                        <i class="fa-solid fa-bars fs-5"></i>
+                    </button>
+                    <h4 class="m-0 fw-semibold ms-3 text-dark">Candidates Directory</h4>
+                    <div class="ms-auto d-flex align-items-center">
+                        <div class="text-end me-3">
+                            <span class="d-block fw-semibold text-dark">Senior Engineer Workspace</span>
+                            <span class="d-block text-muted text-xs text-uppercase tracking-wider">Evaluation Hub</span>
+                        </div>
+                        <div class="bg-secondary text-white rounded-circle d-flex align-items-center justify-content-center fw-bold" style="width:40px; height:40px;">SE</div>
+                    </div>
+                </div>
+            </nav>
+
+            <div class="container-fluid p-4">
+                <div class="row g-4">
+                    <!-- Left Section: Upload & Search -->
+                    <div class="col-lg-5">
+                        <!-- Upload Card -->
+                        <div class="card shadow-sm border-0 rounded-4 mb-4">
+                            <div class="card-body p-4">
+                                <h5 class="card-title fw-bold mb-3 text-dark">
+                                    <i class="fa-solid fa-cloud-arrow-up text-primary me-2"></i>Parse New Resume
+                                </h5>
+                                <p class="text-muted text-sm">Upload PDF or DOCX format resumes. spaCy NER and regular expressions will process and extract profiles automatically.</p>
+                                
+                                <form id="uploadForm">
+                                    <div class="upload-dropzone p-5 text-center border-dashed rounded-4 bg-light mb-3" id="dropzone">
+                                        <i class="fa-solid fa-file-invoice text-muted fs-1 mb-3"></i>
+                                        <p class="mb-2 fw-medium">Drag & drop resume here, or <span class="text-primary cursor-pointer fw-semibold">Browse</span></p>
+                                        <span class="text-muted text-xs">PDF, DOCX formats supported (Max 16MB)</span>
+                                        <input type="file" name="file" id="resumeFileInput" class="d-none" accept=".pdf,.docx">
+                                    </div>
+                                    
+                                    <div id="selectedFileSection" class="d-none mb-3 bg-light p-3 rounded-3 d-flex align-items-center">
+                                        <i class="fa-solid fa-file-pdf text-danger fs-4 me-3" id="fileTypeIcon"></i>
+                                        <div class="overflow-hidden">
+                                            <span class="d-block fw-semibold text-truncate text-dark" id="selectedFileName">resume.pdf</span>
+                                            <span class="text-muted text-xs" id="selectedFileSize">2.1 MB</span>
+                                        </div>
+                                        <button type="button" class="btn btn-sm btn-light border ms-auto rounded-circle" id="clearFileBtn">
+                                            <i class="fa-solid fa-xmark"></i>
+                                        </button>
+                                    </div>
+
+                                    <div class="form-check form-switch mb-3 text-sm">
+                                        <input class="form-check-input" type="checkbox" role="switch" id="overwriteSwitch">
+                                        <label class="form-check-label text-dark" for="overwriteSwitch">Overwrite candidate if email matches (Update Profile)</label>
+                                    </div>
+
+                                    <button type="submit" class="btn btn-primary w-full rounded-3 py-2 fw-semibold" id="uploadSubmitBtn" disabled>
+                                        <i class="fa-solid fa-wand-magic-sparkles me-2"></i>Extract & Parse Profile
+                                    </button>
+                                </form>
+
+                                <!-- Loading Panel -->
+                                <div id="uploadLoader" class="d-none mt-4 text-center">
+                                    <div class="spinner-border text-primary mb-3" role="status">
+                                        <span class="visually-hidden">Loading...</span>
+                                    </div>
+                                    <h6 class="fw-bold text-dark">Initializing NLP Extraction Pipeline...</h6>
+                                    <div class="progress mt-2 rounded-pill" style="height: 6px;">
+                                        <div id="parseProgressBar" class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 25%"></div>
+                                    </div>
+                                    <small id="parseProgressLabel" class="text-muted d-block mt-1">Analyzing file content</small>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Search and Quick Match -->
+                        <div class="card shadow-sm border-0 rounded-4">
+                            <div class="card-body p-4">
+                                <h5 class="card-title fw-bold mb-3 text-dark">
+                                    <i class="fa-solid fa-filter text-info me-2"></i>Query Index
+                                </h5>
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text bg-white border-end-0 rounded-start-3"><i class="fa-solid fa-magnifying-glass text-muted"></i></span>
+                                    <input type="text" class="form-control border-start-0 rounded-end-3 text-sm" id="candidateSearchInput" placeholder="Search by name, skills, location...">
+                                </div>
+                                <div class="d-flex flex-wrap gap-2" id="quickSkillFilters">
+                                    <!-- Quick tech tags -->
+                                    <span class="badge bg-light text-dark border py-2 px-3 rounded-pill cursor-pointer hover-bg-primary text-xs" data-tag="python">Python</span>
+                                    <span class="badge bg-light text-dark border py-2 px-3 rounded-pill cursor-pointer hover-bg-primary text-xs" data-tag="javascript">JavaScript</span>
+                                    <span class="badge bg-light text-dark border py-2 px-3 rounded-pill cursor-pointer hover-bg-primary text-xs" data-tag="flask">Flask</span>
+                                    <span class="badge bg-light text-dark border py-2 px-3 rounded-pill cursor-pointer hover-bg-primary text-xs" data-tag="spacy">spaCy</span>
+                                    <span class="badge bg-light text-dark border py-2 px-3 rounded-pill cursor-pointer hover-bg-primary text-xs" data-tag="postgresql">PostgreSQL</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Section: List of Candidates -->
+                    <div class="col-lg-7">
+                        <div class="card shadow-sm border-0 rounded-4 min-vh-75">
+                            <div class="card-body p-4">
+                                <div class="d-flex justify-content-between align-items-center mb-4">
+                                    <h5 class="card-title fw-bold m-0 text-dark">Indexed Profiles</h5>
+                                    <span class="badge bg-primary rounded-pill py-2 px-3 text-xs" id="candidateCountLabel">0 Candidates</span>
+                                </div>
+
+                                <!-- Candidates Grid/List -->
+                                <div class="row g-3" id="candidatesListContainer">
+                                    <!-- Dynamic content goes here -->
+                                    <div class="text-center py-5 text-muted">
+                                        <i class="fa-solid fa-box-open fs-1 mb-3"></i>
+                                        <p class="fw-semibold">No candidates found in index.</p>
+                                        <p class="text-sm">Upload a resume in the left panel to populate the directory.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Duplicate Alert Dialog Modal -->
+    <div class="modal fade" id="duplicateModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content border-0 rounded-4 shadow-lg">
+                <div class="modal-header border-0 bg-warning text-dark rounded-top-4 py-3">
+                    <h5 class="modal-title fw-bold"><i class="fa-solid fa-triangle-exclamation me-2"></i>Duplicate Resume Detected</h5>
+                    <button type="button" class="btn-close text-dark" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-4 text-center">
+                    <i class="fa-solid fa-user-gear text-warning fs-1 mb-3"></i>
+                    <h5 class="fw-bold text-dark" id="duplicateTitle">Candidate Already Indexed</h5>
+                    <p class="text-muted text-sm" id="duplicateText">A candidate profile with the email address <strong id="duplicateEmail">email@domain.com</strong> is already stored in the PostgreSQL database.</p>
+                    <div class="d-flex gap-2 justify-content-center mt-4">
+                        <button type="button" class="btn btn-light border px-4 rounded-3" data-bs-dismiss="modal">Cancel Upload</button>
+                        <button type="button" class="btn btn-warning px-4 text-dark fw-semibold rounded-3" id="forceOverwriteBtn">Force Overwrite Profile</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Candidate Detail Drawer Modal -->
+    <div class="modal fade" id="candidateDetailModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-scrollable modal-dialog-centered">
+            <div class="modal-content border-0 rounded-4 shadow-lg">
+                <div class="modal-header border-bottom px-4 py-3">
+                    <h5 class="modal-title fw-bold text-dark" id="detailName">Candidate Details</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-4" id="detailModalBody">
+                    <!-- Dynamically populated candidate profile details card -->
+                </div>
+                <div class="modal-footer border-top bg-light p-3 rounded-bottom-4">
+                    <button type="button" class="btn btn-outline-secondary rounded-3 text-sm px-4" data-bs-dismiss="modal">Close</button>
+                    <a href="#" class="btn btn-primary rounded-3 text-sm px-4" id="downloadJsonBtn">
+                        <i class="fa-solid fa-cloud-arrow-down me-2"></i>Download JSON Profile
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap & JS dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/static/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,6 @@
+{
+  "name": "Resume Parser & Analytics Dashboard",
+  "description": "An advanced full-stack Resume Parser application supporting PDF and DOCX uploads, high-accuracy information extraction, rich analytics, search, and download features.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

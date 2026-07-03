@@ -1,0 +1,138 @@
+/* General Styles */
+body {
+    font-family: 'Inter', sans-serif;
+    color: #333333;
+    overflow-x: hidden;
+    background-color: #f8f9fa;
+}
+
+.bg-light-gray {
+    background-color: #f1f3f5;
+}
+
+.text-xs {
+    font-size: 0.75rem;
+}
+
+.text-sm {
+    font-size: 0.85rem;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+.w-inherit {
+    width: inherit;
+}
+
+.min-vh-75 {
+    min-height: 75vh;
+}
+
+.tracking-wide {
+    letter-spacing: 0.05em;
+}
+
+.tracking-wider {
+    letter-spacing: 0.08em;
+}
+
+.w-full {
+    width: 100%;
+}
+
+/* Sidebar Styling */
+#sidebar-wrapper {
+    min-height: 100vh;
+    width: 260px;
+    transition: margin 0.25s ease-out;
+}
+
+#sidebar-wrapper .sidebar-heading {
+    font-size: 1.2rem;
+    letter-spacing: 0.05em;
+}
+
+#sidebar-wrapper .list-group-item {
+    transition: all 0.2s ease-in-out;
+}
+
+#sidebar-wrapper .list-group-item:hover,
+#sidebar-wrapper .list-group-item.active {
+    background-color: #212529 !important;
+    border-left: 4px solid #0dcaf0 !important;
+    color: #ffffff !important;
+}
+
+#wrapper.toggled #sidebar-wrapper {
+    margin-left: -260px;
+}
+
+/* Page content animation */
+#page-content-wrapper {
+    min-width: 0;
+    width: 100%;
+}
+
+/* Upload Dropzone Styling */
+.upload-dropzone {
+    border: 2px dashed #cccccc;
+    transition: border-color 0.15s ease-in-out, background-color 0.15s ease-in-out;
+}
+
+.upload-dropzone:hover, .upload-dropzone.dragover {
+    border-color: #0d6efd;
+    background-color: rgba(13, 110, 253, 0.03) !important;
+}
+
+.border-dashed {
+    border-style: dashed !important;
+}
+
+/* KPI cards */
+.KPI-card {
+    transition: transform 0.2s ease;
+}
+
+.KPI-card:hover {
+    transform: translateY(-4px);
+}
+
+/* Cards customization */
+.card {
+    transition: box-shadow 0.2s ease;
+}
+
+.card:hover {
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,0.08) !important;
+}
+
+/* Scrollbar styles */
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #cccccc;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #999999;
+}
+
+/* Responsive sidebars */
+@media (max-width: 768px) {
+    #sidebar-wrapper {
+        margin-left: -260px;
+    }
+    #wrapper.toggled #sidebar-wrapper {
+        margin-left: 0;
+    }
+}

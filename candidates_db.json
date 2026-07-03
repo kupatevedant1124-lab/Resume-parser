@@ -1,0 +1,131 @@
+[
+  {
+    "id": "candidate_vedant_kupate",
+    "name": "Vedant Kupate",
+    "email": "kupatevedant1124@gmail.com",
+    "phone": "+91 98765 43210",
+    "linkedin": "https://linkedin.com/in/vedantkupate",
+    "github": "https://github.com/vedantkupate",
+    "skills": [
+      "Python",
+      "Flask",
+      "spaCy",
+      "NLP",
+      "PostgreSQL",
+      "SQLAlchemy",
+      "React",
+      "TypeScript",
+      "Tailwind CSS",
+      "Docker",
+      "REST API"
+    ],
+    "education": [
+      "B.Tech in Computer Science - Pune Institute of Computer Technology (PICT), 2025"
+    ],
+    "experience": [
+      "Senior Python NLP Intern - TechSolutions India (Dec 2024 - May 2025)",
+      "Built spaCy Name Entity Recognition pipeline with 94% precision mapping technical resume documents.",
+      "Optimized SQLAlchemy query execution speeds by 30% using proper indexing and lazy loading."
+    ],
+    "certifications": [
+      "DeepLearning.AI Natural Language Processing Specialization",
+      "AWS Certified Developer - Associate"
+    ],
+    "address": "Pune, Maharashtra, India",
+    "summary": "Highly motivated Python Developer and NLP Engineer specializing in Named Entity Extraction, structural document parsing, and full-stack web applications using Flask and React.",
+    "raw_text": "VEDANT KUPATE\nEmail: kupatevedant1124@gmail.com\nPhone: +91 98765 43210\nLinkedIn: linkedin.com/in/vedantkupate\nGitHub: github.com/vedantkupate\nAddress: Pune, Maharashtra, India\n\nSUMMARY\nHighly motivated Python Developer and NLP Engineer specializing in Named Entity Extraction, structural document parsing, and full-stack web applications using Flask and React.\n\nEDUCATION\n- B.Tech in Computer Science, Pune Institute of Computer Technology (PICT), Graduating 2025\n\nSKILLS\nLanguages: Python, JavaScript, TypeScript, SQL\nFrameworks: Flask, spaCy, React, Express, Tailwind CSS, Bootstrap\nDatabases: PostgreSQL, SQLite\nTools: Docker, Git, GitHub, SQLAlchemy, REST API\n\nEXPERIENCE\nSenior Python NLP Intern, TechSolutions India (Dec 2024 - May 2025)\n- Built spaCy Name Entity Recognition pipeline with 94% precision mapping technical resume documents.\n- Optimized SQLAlchemy query execution speeds by 30% using proper indexing and lazy loading.\n\nCERTIFICATIONS\n- DeepLearning.AI Natural Language Processing Specialization\n- AWS Certified Developer - Associate",
+    "resume_file": {
+      "name": "Vedant_Kupate_Resume.pdf",
+      "size": 182736,
+      "mimeType": "application/pdf",
+      "uploadedAt": "2026-07-02T23:11:35.000Z"
+    },
+    "created_at": "2026-07-02T10:00:00.000Z"
+  },
+  {
+    "id": "candidate_alice_smith",
+    "name": "Alice Smith",
+    "email": "alice.smith@domain.com",
+    "phone": "+1 (555) 019-2834",
+    "linkedin": "https://linkedin.com/in/alicesmith",
+    "github": "https://github.com/alicesmith",
+    "skills": [
+      "JavaScript",
+      "TypeScript",
+      "React",
+      "Node.js",
+      "Express",
+      "GraphQL",
+      "MongoDB",
+      "HTML",
+      "CSS",
+      "Tailwind CSS",
+      "Jest"
+    ],
+    "education": [
+      "M.S. in Software Engineering - University of California, Berkeley, 2024"
+    ],
+    "experience": [
+      "Full Stack Engineer - InnovateTech Corp (Jul 2024 - Present)",
+      "Engineered real-time web socket dashboard layouts using React and Tailwind CSS, improving active user session retention by 15%.",
+      "Implemented server-side GraphQL endpoint routers, reducing network query payloads by 40%."
+    ],
+    "certifications": [
+      "React Advanced Credentials Badge",
+      "MongoDB Certified Developer"
+    ],
+    "address": "San Francisco, CA, USA",
+    "summary": "Experienced Full Stack Engineer passionate about building modern, responsive, and performant web applications using React, Node.js, and clean software design patterns.",
+    "raw_text": "ALICE SMITH\nEmail: alice.smith@domain.com\nPhone: +1 (555) 019-2834\nLinkedIn: linkedin.com/in/alicesmith\nGitHub: github.com/alicesmith\n\nSUMMARY\nExperienced Full Stack Engineer passionate about building modern, responsive, and performant web applications using React, Node.js, and clean software design patterns.\n\nEDUCATION\n- M.S. in Software Engineering, UC Berkeley, 2024\n\nSKILLS\nReact, TypeScript, JavaScript, Node.js, Express, MongoDB, Tailwind CSS, HTML, CSS, Jest, GraphQL\n\nEXPERIENCE\nFull Stack Engineer, InnovateTech Corp (Jul 2024 - Present)\n- Engineered real-time web socket dashboard layouts using React and Tailwind CSS, improving active user session retention by 15%.\n- Implemented server-side GraphQL endpoint routers, reducing network query payloads by 40%.",
+    "resume_file": {
+      "name": "Alice_Smith_Resume.docx",
+      "size": 154320,
+      "mimeType": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+      "uploadedAt": "2026-07-02T23:12:00.000Z"
+    },
+    "created_at": "2026-07-02T11:30:00.000Z"
+  },
+  {
+    "id": "candidate_bob_johnson",
+    "name": "Bob Johnson",
+    "email": "bob.johnson@domain.com",
+    "phone": "+1 (555) 987-6543",
+    "linkedin": "https://linkedin.com/in/bobjohnson",
+    "github": "https://github.com/bobjohnson",
+    "skills": [
+      "AWS",
+      "Docker",
+      "Kubernetes",
+      "Terraform",
+      "CI/CD",
+      "GitHub Actions",
+      "Python",
+      "Bash",
+      "Shell",
+      "Linux",
+      "Nginx"
+    ],
+    "education": [
+      "B.S. in Computer Engineering - University of Texas at Austin, 2023"
+    ],
+    "experience": [
+      "DevOps Engineer - CloudSystems LLC (Jan 2024 - Present)",
+      "Automated continuous integration and deployment (CI/CD) pipelines using GitHub Actions, decreasing release cycle times by 50%.",
+      "Provisioned highly available Kubernetes (EKS) container infrastructures using Terraform."
+    ],
+    "certifications": [
+      "AWS Certified Solutions Architect - Professional",
+      "Certified Kubernetes Administrator (CKA)"
+    ],
+    "address": "Austin, TX, USA",
+    "summary": "Dedicated DevOps and Infrastructure Engineer specialized in container orchestration, cloud systems architecture, automated CI/CD workflows, and infrastructure-as-code deployments.",
+    "raw_text": "BOB JOHNSON\nEmail: bob.johnson@domain.com\nPhone: +1 (555) 987-6543\nLinkedIn: linkedin.com/in/bobjohnson\nGitHub: github.com/bobjohnson\n\nSUMMARY\nDedicated DevOps and Infrastructure Engineer specialized in container orchestration, cloud systems architecture, automated CI/CD workflows, and infrastructure-as-code deployments.\n\nEDUCATION\n- B.S. in Computer Engineering, UT Austin, 2023\n\nSKILLS\nAWS, Cloud, Docker, Kubernetes, Terraform, Git, CI/CD, GitHub Actions, Python, Linux, Nginx, Bash\n\nEXPERIENCE\nDevOps Engineer, CloudSystems LLC (Jan 2024 - Present)\n- Automated continuous integration and deployment (CI/CD) pipelines using GitHub Actions, decreasing release cycle times by 50%.\n- Provisioned highly available Kubernetes (EKS) container infrastructures using Terraform.",
+    "resume_file": {
+      "name": "Bob_Johnson_Resume.pdf",
+      "size": 194821,
+      "mimeType": "application/pdf",
+      "uploadedAt": "2026-07-02T23:14:00.000Z"
+    },
+    "created_at": "2026-07-02T12:15:00.000Z"
+  }
+]
